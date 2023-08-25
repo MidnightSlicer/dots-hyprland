@@ -1,6 +1,6 @@
 <div align="center">
     <h1>[ end-4/dots-hyprland > NovelKnock ]</h1>
-    <h3> A polished Linux experience. </h3>
+    <h3> A polished Linux experience with Dylan's changes. </h3>
 </div>
 
 ## Description
