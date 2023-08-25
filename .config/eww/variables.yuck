@@ -15,13 +15,6 @@
 (defvar ws-icons '["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]')
 (deflisten ICON_GET `scripts/get_open_icons`)
 (defvar MIN_ROW_HEIGHT 100)
-(defvar WAIFU_TAG_ID `[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]`) ; Note: change $total and $shown in scripts/scroll-waifu too
-(defvar WAIFU_CATEGORIES      `["waifu", "maid", "uniform", "nekos.life", "oppai", "ero", "ecchi", "hentai", "paizuri", "selfies", "raiden-shogun", "megumin",        "marin-kitagawa", "mori-calliope", "ass", ".pics:waifu",  ".pics:waifu segs",    ".pics:neko",  ".pics:neko segs",    "oral"]`)
-(defvar WAIFU_CATEGORIES_ARGS `["waifu", "maid", "uniform", "--neko",     "oppai", "ero", "ecchi", "hentai", "paizuri", "selfies", "raiden-shogun", "--pics megumin", "marin-kitagawa", "mori-calliope", "ass", "--pics waifu", "--pics waifu --segs", "--pics neko", "--pics neko --segs", "oral"]`)
-
-; (defvar WAIFU_TAG_ID `[0,1,2,3,4,5,6,7,8,9,10]`) ; Note: change $total and $shown in scripts/scroll-waifu too
-; (defvar WAIFU_CATEGORIES      `["waifu", "maid", "uniform", "nekos.life", "selfies", "raiden-shogun", "megumin",        "marin-kitagawa", "mori-calliope", ".pics:waifu",    ".pics:neko"]`)
-; (defvar WAIFU_CATEGORIES_ARGS `["waifu", "maid", "uniform", "--neko",   , "selfies", "raiden-shogun", "--pics megumin", "marin-kitagawa", "mori-calliope", "--pics waifu", "--pics neko"]`)
 
 (defvar username_default "username")
 (defvar WORKSPACE_SIDE_PAD 15)
@@ -30,8 +23,6 @@
 (defvar DYNMODULE_LEFT_PAGES 2)
 (defvar DYNMODULE_RIGHT_PAGES 3)
 (defvar SIDELEFT_FAVOURITE_TITLES `["Favourite settings", "Culture"]`)
-(defvar SCROLL_MULTIPLIER_WAIFUTAGS 36) ; Number of pixels to scroll each mouse scroll
-(defvar SCROLL_TOSHOW_WAIFUTAGS 7) ; Edit scroll-waifu script too. I have to hard code or it'll be very slow
 (defvar SCROLL_MULTIPLIER_SETTINGS 427) ; Number of pixels to scroll each mouse scroll
 (defvar DASHBOARD_SETTINGS_PAGES 4)
 (defvar SUPERCONTEXT_DIAMETER 320)
@@ -49,7 +40,6 @@
 (defvar anim_set 0) ; Index of main animation set
 
 ; Vars
-(defvar scroll_offset_waifu 0)
 (defvar bar_offset 0)
 (defvar osd_vol false)
 (defvar osd_bright false)
@@ -64,7 +54,6 @@
 (defvar calendartitle "")
 (defvar monthshift 0)
 (defvar quote_index 0)
-(defvar rev_waifustatus false)
 (defvar settings_section -1)
 (defvar scroll_offset_settings -1)
 (defvar scrolldir 'a')
@@ -73,8 +62,6 @@
 (defvar ws_to_swap 0)
 (defvar ws_to_dump 0)
 (defvar flash_notif false)
-(defvar show_waifu false)
-(defvar waifu_status "")
 
 ; Open/close/hover state
 (defvar hover_music false)
@@ -158,7 +145,6 @@
 (defpoll diskfree :interval "10m" `df -h --output=avail / | awk 'NR==2{print $1}'`)
 (defpoll disksize :interval "10m" `df -h --output=size / | awk 'NR==2{print $1}'`)
 (deflisten cpuname `cat /proc/cpuinfo | grep 'model name' | awk -F: '{print $2}' | head -n 1`)
-(defpoll waifu :initial `{"path": "eww_covers/waifu", "size": [1080, 1080]}` :interval "5m" `python3 scripts/waifu-get.py waifu`)
 (defpoll calendar :initial "[]" :interval "15m" `eww update monthshift=0 && eww update calendartitle="$(date '+%B %Y')" && scripts/calendarlayout`)
 
 

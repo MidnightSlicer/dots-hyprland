@@ -1,6 +1,6 @@
 #/usr/bin/bash
 
-cd /home/end/Videos
+cd ~/Videos
 if ["$(pidof wf-recorder)" -ne ""]; then
     rm recording.mp4
     notify-send "wf-recorder" "Starting recording"

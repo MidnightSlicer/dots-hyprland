@@ -11,7 +11,8 @@
   - **OSDs done right.** Volume and Brightness indicators are shown on the topleft and topright corners. They don't block your windows or other bar components.
 - A comfortable experience:
   - Easy on the eyes: uses Material You colors and natural animation curves
-  - Random anime girl from 3 public APIs ~~(segs too!)~~
+  - Lol I took the anime out because I'm not a weeb
+  - I didn't change the screenshots in the gallery...
 
 ---
 
